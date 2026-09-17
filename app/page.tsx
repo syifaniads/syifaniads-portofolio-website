@@ -25,19 +25,32 @@ const projects = [
     summary:
       "Implemented a containerized monitoring environment, traced authentication and integrity events, and turned operational findings into documented infrastructure recommendations.",
     tags: ["Wazuh", "Graylog", "OpenSearch", "MISP", "Docker"],
+    href: "https://github.com/syifaniads/wazuh-siem-security-monitoring",
   },
   {
     number: "02",
+    icon: ShieldCheck,
+    title: "Enterprise Identity Security Lab",
+    context: "Cyber Defense Academy · IAM / Active Directory",
+    outcome: "AD hardening + IAM lifecycle automation",
+    summary:
+      "Curated an evidence-backed Windows Server and identity-security lab covering Active Directory provisioning, security auditing, JML lifecycle design, RBAC/SoD, recovery, patching, and automated PowerShell quality checks.",
+    tags: ["Active Directory", "PowerShell", "IAM/IGA", "Pester", "GitHub Actions"],
+    href: "https://github.com/syifaniads/enterprise-identity-security-lab",
+  },
+  {
+    number: "03",
     icon: Boxes,
     title: "Go4Beyond AI Visa Readiness Platform",
     context: "APIE Advanced Camp · SOI Asia",
     outcome: "11+ local services orchestrated",
     summary:
       "Co-developed a modular proof of concept spanning application, API, storage, database, queue, search, and AI workloads with observable service health and controlled document flows.",
-    tags: ["FastAPI", "PostgreSQL", "Redis", "MinIO", "JWT/RBAC"],
+    tags: ["FastAPI", "PostgreSQL", "Redis", "Celery", "MinIO"],
+    href: "https://github.com/syifaniads/go4beyond-ai-visa-platform",
   },
   {
-    number: "03",
+    number: "04",
     icon: FileSearch,
     title: "OJS Vulnerability Assessment",
     context: "DevSecOps Team Project",
@@ -45,16 +58,29 @@ const projects = [
     summary:
       "Combined static and dynamic testing with manual validation, documented CVSS-scored findings, and contributed to a 15-finding team risk register with prioritized remediation.",
     tags: ["Semgrep", "OWASP ZAP", "CVSS v3.1", "OWASP Top 10", "Docker"],
+    href: "https://github.com/syifaniads/ojs-devsecops-security-assessment",
   },
   {
-    number: "04",
+    number: "05",
     icon: Network,
-    title: "Linux Server & Service Monitoring Laboratory",
-    context: "Infrastructure Administration Project",
-    outcome: "11 administration modules completed",
+    title: "Enterprise Network Security Lab",
+    context: "GNS3 / pfSense Infrastructure Lab",
+    outcome: "Routing, segmentation, firewall, VPN & DNS controls",
     summary:
-      "Configured Linux services, load balancing, containers, and observability workflows, including a two-node Kubernetes environment and Prometheus/Grafana monitoring.",
-    tags: ["Ubuntu", "Kubernetes", "containerd", "HAProxy", "Grafana"],
+      "Designed and documented a segmented enterprise-style lab with VLANs, OSPF, switching redundancy, firewall/NAT/VPN policy, DNS resilience, configuration evidence, and automated static validation of retained network artifacts.",
+    tags: ["GNS3", "pfSense", "OSPF", "VLAN", "VPN"],
+    href: "https://github.com/syifaniads/enterprise-network-security-gns3-lab",
+  },
+  {
+    number: "06",
+    icon: Boxes,
+    title: "Go Reserve DevSecOps Platform",
+    context: "Collaborative DevSecOps Project",
+    outcome: "CI/CD, containers, deployment & observability evidence",
+    summary:
+      "Curated a collaborative room-reservation platform around its delivery path: application build, Jenkins pipeline, container publishing, deployment architecture, security boundaries, monitoring, provenance, and production-gap analysis.",
+    tags: ["Jenkins", "Docker", "PostgreSQL", "AWS", "DevSecOps"],
+    href: "https://github.com/syifaniads/go-reserve-devsecops-platform",
   },
 ];
 
@@ -169,6 +195,7 @@ export default function Home() {
           <div className="panel-footer">
             <a href="mailto:syfaads16@student.ub.ac.id"><Mail size={18} /> Email</a>
             <a href="https://www.linkedin.com/in/syifaniadillahsalsabila/" target="_blank" rel="noreferrer"><Link2 size={18} /> LinkedIn</a>
+            <a href="https://github.com/syifaniads" target="_blank" rel="noreferrer"><Link2 size={18} /> GitHub</a>
           </div>
         </aside>
       </section>
@@ -184,7 +211,7 @@ export default function Home() {
         <SectionLabel>01 · Selected work</SectionLabel>
         <div className="section-intro">
           <h2>Evidence over adjectives.</h2>
-          <p>Projects selected for relevance to security operations, cloud infrastructure, DevOps, and technical support.</p>
+          <p>Projects selected for relevance to security operations, cloud infrastructure, DevOps, IAM, networking, and technical support. Every card links directly to reviewable technical evidence.</p>
         </div>
         <div className="project-list">
           {projects.map((project) => {
@@ -200,6 +227,9 @@ export default function Home() {
                   <ul className="tag-list" aria-label={`${project.title} technologies`}>
                     {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                   </ul>
+                  <a className="button button-secondary" href={project.href} target="_blank" rel="noreferrer">
+                    Review technical evidence <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
                 </div>
                 <div className="project-outcome"><CheckCircle2 size={18} aria-hidden="true" />{project.outcome}</div>
               </article>
